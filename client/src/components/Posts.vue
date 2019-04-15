@@ -11,7 +11,7 @@
           <td width="550">Description</td>
           <td width="100" align="center">Action</td>
         </tr>
-        <tr :v-for="post in posts">
+        <tr v-for="post in posts",:key="post.id">
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td align="center">
@@ -43,7 +43,7 @@ export default {
   methods: {
     async getPosts () {
       const response = await PostsService.fetchPosts()
-      this.posts = response.data.posts
+      this.posts.push(response.data)
     },
     async deletePost (id) {
       const $this = this
