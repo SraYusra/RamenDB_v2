@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Posts from '@/components/Posts'
 import addpost from '@/components/AddPost'
 import editpost from '@/components/EditPost'
+import upload from '@/components/UploadFile'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/posts/:id/edit',
       component: editpost,
       name: 'editpost'
+    },
+    {
+      path: '/posts/upload',
+      component: upload,
+      name: 'upload'
     }
   ]
 })
