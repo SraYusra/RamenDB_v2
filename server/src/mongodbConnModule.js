@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 module.exports.connect = function() {
-	mongoose.connect('mongodb://localhost:27017/MEVN-boilerplate',{useNewUrlParser: true});
+	mongoose.connect("mongodb+srv://user:1u2s3e4r5@cluster0-o8kxl.mongodb.net/test?retryWrites=true",{useNewUrlParser: true});
 	var db = mongoose.connection;
 	db.on("error", console.error.bind(console, "connection error"));
 	db.once("open", function(callback){
