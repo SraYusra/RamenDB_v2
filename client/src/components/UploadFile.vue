@@ -1,5 +1,6 @@
 <template>
-    <div class="container">
+  <div class="upload">
+    <h1>File Upload</h1>
     <div class="panel panel-sm">
       <div class="panel-heading"> 
         <h4>CSV Import</h4>
@@ -23,7 +24,7 @@
         <table v-if="parse_csv">
           <thead>
             <tr>
-              <th v-for="key in parse_header"
+              <th v-for="key in parse_header" :key="key.id"
                   @click="sortBy(key)"
                   :class="{ active: sortKey == key }">
                 {{ key | capitalize }}
@@ -32,13 +33,19 @@
               </th>
             </tr>
           </thead> 
-          <tr v-for="csv in parse_csv">
-            <td v-for="key in parse_header">
+          <tr v-for="csv in parse_csv" :key="csv.id">
+            <td v-for="key in parse_header" :key="key.id">
               {{csv[key]}}
+            </td>
+            <td>
+              <div class="checkbox-inline">
+                <input type="checkbox" id="select">
+              </div>
             </td>
           </tr>
           
         </table>
+
       </div>
     </div>
     
@@ -47,83 +54,78 @@
 
 <script>
 export default {
-    name: 'upload',
-    
-    data() {
-      return {
-        channel_name: '',
-        channel_fields: [],
-        channel_entries: [],
-        parse_header: [],
-        parse_csv: [],
-        sortOrders:{},
-        sortKey: ''
-      };
+  name: 'upload',
+  data () {
+    return {
+      channel_name: '',
+      channel_fields: [],
+      channel_entries: [],
+      parse_header: [],
+      parse_csv: [],
+      sortOrders: {},
+      sortKey: ''
+    }
+  },
+  filters: {
+    capitalize: function (str) {
+      return str.charAt(0).toUpperCase() + str.slice(1)
+    }
+  },
+  methods: {
+    sortBy: function (key) {
+      var vm = this
+      vm.sortKey = key
+      vm.sortOrders[key] = vm.sortOrders[key] * -1
     },
-    filters: {
-      capitalize: function (str) {
-        return str.charAt(0).toUpperCase() + str.slice(1)
-      }
-    },
-    methods: {
-      sortBy: function (key) {
-        var vm = this
-        vm.sortKey = key
-        vm.sortOrders[key] = vm.sortOrders[key] * -1
-      },
-      csvJSON(csv){
-        var vm = this
-        var lines = csv.split("\n")
-        var result = []
-        var headers = lines[0].split(",")
-        vm.parse_header = lines[0].split(",") 
-        lines[0].split(",").forEach(function (key) {
-          vm.sortOrders[key] = 1
-        })
-      
-      lines.map(function(line, indexLine){
+    csvJSON (csv) {
+      var vm = this
+      var lines = csv.split('\n')
+      var result = []
+      var headers = lines[0].split(',')
+      vm.parse_header = lines[0].split(',')
+      lines[0].split(',').forEach(function (key) {
+        vm.sortOrders[key] = 1
+      })
+
+      lines.map(function (line, indexLine) {
         if (indexLine < 1) return // Jump header line
-        
+
         var obj = {}
-        var currentline = line.split(",")
-        
-        headers.map(function(header, indexHeader){
+        var currentline = line.split(',')
+
+        headers.map(function (header, indexHeader) {
           obj[header] = currentline[indexHeader]
         })
-        
         result.push(obj)
       })
-      
+
       result.pop() // remove the last item because undefined values
-      
       return result // JavaScript object
-      },
-      loadCSV(e) {
-        var vm = this
-        if (window.FileReader) {
-          var reader = new FileReader();
-          reader.readAsText(e.target.files[0]);
-          // Handle errors load
-          reader.onload = function(event) {
-            var csv = event.target.result;
-            vm.parse_csv = vm.csvJSON(csv)
-          
-          };
-          reader.onerror = function(evt) {
-            if(evt.target.error.name == "NotReadableError") {
-              alert("Canno't read file !");
-            }
-          };
-        } else {
-        alert('FileReader are not supported in this browser.');
+    },
+    loadCSV (e) {
+      var vm = this
+      if (window.FileReader) {
+        var reader = new FileReader()
+        reader.readAsText(e.target.files[0])
+        // Handle errors load
+        reader.onload = function (event) {
+          var csv = event.target.result
+          vm.parse_csv = vm.csvJSON(csv)
+        }
+        reader.onerror = function (evt) {
+          if (evt.target.error.name === 'NotReadableError') {
+            alert('Canno\'t read file !')
+          }
+        }
+      } else {
+        alert('FileReader are not supported in this browser.')
       }
     }
   }
-  
 }
 </script>
 
-<style>
+<style scoped>
 html, body {
   margin: 0;
   padding: 0;
@@ -137,7 +139,7 @@ body {
   margin: 10px;
 } 
 .panel.panel-sm {
-  max-width: 700px;
+  max-width: auto;
   margin: 10px auto;
 }
 .panel-heading {

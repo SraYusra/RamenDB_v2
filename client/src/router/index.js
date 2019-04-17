@@ -26,7 +26,7 @@ export default new Router({
       name: 'editpost'
     },
     {
-      path: '/posts/upload',
+      path: '/upload',
       component: upload,
       name: 'upload'
     }
