@@ -25,6 +25,10 @@
       There are no posts.. Lets add one now <br /><br />
       <router-link v-bind:to="{ name: 'addpost' }" class="add_post_link">Add Post</router-link>
     </div>
+    <br>
+    <br>
+    <br>
+    <router-link v-bind:to="{ name: 'upload' }" class="upload_link">File Upload</router-link>
   </div>
 </template>
 
@@ -92,6 +96,14 @@ a {
   text-decoration: none;
 }
 a.add_post_link {
+  background: #4d7ef7;
+  color: #fff;
+  padding: 10px 80px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+a.upload_link {
   background: #4d7ef7;
   color: #fff;
   padding: 10px 80px;
