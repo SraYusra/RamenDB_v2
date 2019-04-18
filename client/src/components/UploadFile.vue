@@ -126,6 +126,9 @@ export default {
 </script>
 
 <style scoped>
+.upload {
+  margin-top: 150px;
+}
 html, body {
   margin: 0;
   padding: 0;

@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "buefy": "^0.7.4",
     "bulma": "^0.7.4",
     "vue": "^2.4.2",
+    "vue-awesome": "^3.5.1",
+    "vue-burger-menu": "^2.0.1",
     "vue-router": "^2.7.0",
     "vue-sweetalert2": "^1.0.7"
   },

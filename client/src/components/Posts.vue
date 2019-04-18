@@ -34,6 +34,7 @@
 
 <script>
 import PostsService from '@/services/PostsService'
+
 export default {
   name: 'posts',
   data () {
@@ -69,10 +70,13 @@ export default {
   }
 }
 </script>
-<style type="text/css">
+<style scoped type="text/css">
+.posts {
+  margin-top: 130px;
+}
 .table-wrap {
   width: 60%;
-  margin: 0 auto;
+  margin: 10px auto;
   text-align: center;
 }
 table th, table tr {
@@ -88,15 +92,15 @@ table tr:nth-child(odd) {
   background: #f2f2f2;
 }
 table tr:nth-child(1) {
-  background: #4d7ef7;
+  background: #47a792;
   color: #fff;
 }
 a {
-  color: #4d7ef7;
+  color: #0ad6cc;
   text-decoration: none;
 }
 a.add_post_link {
-  background: #4d7ef7;
+  background: #47a792;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;
@@ -104,7 +108,7 @@ a.add_post_link {
   font-weight: bold;
 }
 a.upload_link {
-  background: #4d7ef7;
+  background: #47a792;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;
