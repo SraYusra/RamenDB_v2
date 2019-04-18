@@ -2,7 +2,7 @@
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item" width="1500">
-      <img src="../assets/logo.png" width="50" height="60">
+      <img src="../../assets/logo.png" width="50" height="60">
       <div class="logo">Ramen Database</div>
     </div>
 

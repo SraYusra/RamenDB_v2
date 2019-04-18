@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import navbar from '@/components/NavBar'
-import slidenav from '@/components/SlideNav'
+import navbar from '@/components/features/NavBar'
+import slidenav from '@/components/features/SlideNav'
 export default {
   name: 'app',
   components: {
