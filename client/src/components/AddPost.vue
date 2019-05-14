@@ -2,12 +2,41 @@
   <div class="posts">
     <h1>Add Post</h1>
       <div class="form">
+        
         <div>
           <input type="text" name="title" placeholder="TITLE" v-model="title">
         </div>
         <div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
+        <div>
+          <input type="text" name="type" placeholder="TYPE" v-model="type">
+        </div>
+        <div>
+          <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="title">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="CUSTOMER NAME" v-model="customerName">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="CUSTOMER ID" v-model="customerID">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="COURSE ID" v-model="courseID">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="STATUS" v-model="status">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="HOURS" v-model="hours">
+        </div>
+        <div>
+          <input type="text" name="type" placeholder="START DATE" v-model="startDate">
+        </div>
+        <div>
+          <input type="text" name="endDate" placeholder="END DATE" v-model="endDate">
+        </div>
+
         <div>
           <button class="app_post_btn" @click="addPost">Add</button>
         </div>
@@ -21,6 +50,15 @@ export default {
   name: 'addpost',
   data () {
     return {
+      ticketNum: '',
+      type: '',
+      customerName: '',
+      customerID: '',
+      courseID: '',
+      status: '',
+      hours: '',
+      startDate: '',
+      endDate: '',
       title: '',
       description: ''
     }
