@@ -13,7 +13,7 @@
           <input type="text" name="type" placeholder="TYPE" v-model="type">
         </div>
         <div>
-          <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="title">
+          <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
         </div>
         <div>
           <input type="text" name="type" placeholder="CUSTOMER NAME" v-model="customerName">
@@ -65,9 +65,30 @@ export default {
   },
   methods: {
     async addPost () {
+      /*
       await PostsService.addPost({
         title: this.title,
         description: this.description
+      })
+      this.$swal(
+        'Great!',
+        `Your post has been added!`,
+        'success'
+      )
+      this.$router.push({ name: 'Posts' })
+      */
+      await PostsService.addPost({
+        title: this.title,
+        description: this.description,
+        ticketNum: this.ticketNum,
+        type: this.type,
+        customerName: this.customerName,
+        customerID: this.customerID,
+        courseID: this.courseID,
+        status: this.status,
+        hours: this.hours,
+        startDate: this.startDate,
+        endDate: this.endDate
       })
       this.$swal(
         'Great!',

@@ -3,7 +3,16 @@ var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
   title: String,
-  description: String
+  description: String,
+  ticketNum: String,
+  type: String,
+  customerName: String,
+  customerID: String,
+  courseID: String,
+  status: String,
+  hours: String,
+  startDate: Date,
+  endDate: Date,
 });
 
 var Post = mongoose.model("Post", PostSchema);

@@ -26,9 +26,28 @@ app.post('/add_post', (req, res) => {
 	var db = req.db;
 	var title = req.body.title;
 	var description = req.body.description;
+	var ticketNum = req.body.ticketNum;
+	var type = req.body.type;
+	var customerName = req.body.customerName;
+	var customerID = req.body.customerID;
+	var courseID = req.body.courseID;
+	var status = req.body.status;
+	var hours = req.body.hours;
+	var startDate = req.body.startDate;
+	var endDate = req.body.endDate;
+
 	var new_post = new Post({
 		title: title,
-		description: description
+		description: description,
+		ticketNum: ticketNum,
+  		type: type,
+  		customerName: customerName,
+  		customerID: customerID,
+  		courseID: courseID,
+  		status: status,
+  		hours: hours,
+  		startDate: startDate,
+  		endDate: endDate,
 	})
 
 	new_post.save(function (error) {
