@@ -10,36 +10,59 @@
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
         <div>
-          <input type="text" name="type" placeholder="TYPE" v-model="type">
-        </div>
-        <div>
           <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
         </div>
         <div>
-          <input type="text" name="type" placeholder="CUSTOMER NAME" v-model="customerName">
+          <label>Type: </label>
+          <select v-model="type" ref="type">
+              <option :selected="type=='Type...'" :value="null">Type...</option>
+              <option>PROJECT</option> <!--  -->
+              <option>SERVICE</option>
+          </select>
+
+          <label>Status: </label>
+          <select v-model="status" ref="status">
+              <option :selected="status=='Choose a Status...'" :value="null">Choose a Status...</option>
+              <option v-for="s in statuses" v-bind:value="s" :key="s">{{s}}</option>
+          </select>
         </div>
         <div>
-          <input type="text" name="type" placeholder="CUSTOMER ID" v-model="customerID">
+          <label>Faculty/Affiliate: </label>
+          <select v-model="faculty" ref="faculty">
+              <option :selected="faculty=='Choose a Faculty...'" :value="null">Choose a Faculty...</option>
+              <option v-for="f in faculties" v-bind:value="f" :key="f">{{f}}</option>
+          </select>
+          <input style="width:165px" type="text" name="department" placeholder="DEPARTMENT" v-model="department">
         </div>
         <div>
-          <input type="text" name="type" placeholder="COURSE ID" v-model="courseID">
+          
         </div>
         <div>
-          <input type="text" name="type" placeholder="STATUS" v-model="status">
+          <input type="text" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
         </div>
         <div>
-          <input type="text" name="type" placeholder="HOURS" v-model="hours">
+          <input type="text" name="customerID" placeholder="CUSTOMER ID" v-model="customerID">
         </div>
         <div>
-          <input type="text" name="type" placeholder="START DATE" v-model="startDate">
+          <input type="text" name="courseID" placeholder="COURSE ID" v-model="courseID">
         </div>
+        
         <div>
-          <input type="text" name="endDate" placeholder="END DATE" v-model="endDate">
+          <input type="text" name="hours" placeholder="HOURS" v-model="hours">
+        </div>
+
+        <div>
+          <input type="date" name="startDate" placeholder="START DATE" v-model="startDate">
+        </div>
+
+        <div>
+          <input type="date" name="endDate" placeholder="END DATE" v-model="endDate">
         </div>
 
         <div>
           <button class="app_post_btn" @click="addPost">Add</button>
         </div>
+
       </div>
   </div>
 </template>
@@ -60,23 +83,22 @@ export default {
       startDate: '',
       endDate: '',
       title: '',
-      description: ''
+      description: '',
+      faculty: '',
+      department: '',
+
+      statuses: [],
+      faculties: []
     }
   },
+
+  mounted () {
+    this.statuses = require('./status.json').statuses
+    this.faculties = require('./faculties.json').faculties
+  },
+
   methods: {
     async addPost () {
-      /*
-      await PostsService.addPost({
-        title: this.title,
-        description: this.description
-      })
-      this.$swal(
-        'Great!',
-        `Your post has been added!`,
-        'success'
-      )
-      this.$router.push({ name: 'Posts' })
-      */
       await PostsService.addPost({
         title: this.title,
         description: this.description,
@@ -88,7 +110,9 @@ export default {
         status: this.status,
         hours: this.hours,
         startDate: this.startDate,
-        endDate: this.endDate
+        endDate: this.endDate,
+        faculty: this.faculty,
+        department: this.department
       })
       this.$swal(
         'Great!',
@@ -111,6 +135,18 @@ export default {
 .form div {
   margin: 20px;
 }
+.form label {
+  padding: 5px;
+}
+.form select {
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+  border: 1px solid #e0dede;
+  outline: none;
+  font-size: 12px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
 .app_post_btn {
   background: #47a792;
   color: #fff;
@@ -122,5 +158,8 @@ export default {
   border: none;
   cursor: pointer;
 }
+
+
+
 </style>
 

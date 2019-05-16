@@ -35,6 +35,8 @@ app.post('/add_post', (req, res) => {
 	var hours = req.body.hours;
 	var startDate = req.body.startDate;
 	var endDate = req.body.endDate;
+	var faculty = req.body.faculty;
+	var department = req.body.department;
 
 	var new_post = new Post({
 		title: title,
@@ -47,8 +49,13 @@ app.post('/add_post', (req, res) => {
   		status: status,
   		hours: hours,
   		startDate: startDate,
-  		endDate: endDate,
+		endDate: endDate,
+		faculty: faculty,
+		department: department
 	})
+
+	//console.log(new_post);
+	//return 
 
 	new_post.save(function (error) {
 		if (error) {

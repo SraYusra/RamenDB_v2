@@ -13,6 +13,8 @@ var PostSchema = new Schema({
   hours: String,
   startDate: Date,
   endDate: Date,
+  faculty: String,
+  department: String
 });
 
 var Post = mongoose.model("Post", PostSchema);
