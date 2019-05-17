@@ -35,6 +35,11 @@
           <input style="width:165px" type="text" name="department" placeholder="DEPARTMENT" v-model="department">
         </div>
         <div>
+
+        <div>
+          <model-select :options="options" v-model="item" placeholder="select item">
+          </model-select>
+        </div>
           
         </div>
         <div>
@@ -69,6 +74,8 @@
 
 <script>
 import PostsService from '@/services/PostsService'
+import { ModelSelect } from 'vue-search-select'
+
 export default {
   name: 'addpost',
   data () {
@@ -88,7 +95,9 @@ export default {
       department: '',
 
       statuses: [],
-      faculties: []
+      faculties: [],
+
+      options: []
     }
   },
 
