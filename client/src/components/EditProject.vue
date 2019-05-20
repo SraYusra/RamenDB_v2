@@ -1,6 +1,6 @@
 <template>
-  <div class="posts">
-    <h1>Edit Post</h1>
+  <div class="projects">
+    <h1>Edit Project</h1>
       <div class="form">
         <div>
           <input type="text" name="title" placeholder="TITLE" v-model="title">
@@ -9,16 +9,16 @@
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
         <div>
-          <button class="app_post_btn" @click="updatePost">Update</button>
+          <button class="app_project_btn" @click="updateProject">Update</button>
         </div>
       </div>
   </div>
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import ProjectsService from '@/services/ProjectsService'
 export default {
-  name: 'editpost',
+  name: 'editproject',
   data () {
     return {
       title: '',
@@ -26,29 +26,29 @@ export default {
     }
   },
   mounted () {
-    this.getPost()
+    this.getProject()
   },
   methods: {
-    async getPost () {
-      const response = await PostsService.getPost({
+    async getProject () {
+      const response = await ProjectsService.getProject({
         id: this.$route.params.id
       })
       this.title = response.data.title
       this.description = response.data.description
-      // this.$router.push({ name: 'Posts' })
+      // this.$router.push({ name: 'Projectts' })
     },
-    async updatePost () {
-      await PostsService.updatePost({
+    async updateProject () {
+      await ProjectsService.updateProject({
         id: this.$route.params.id,
         title: this.title,
         description: this.description
       })
       this.$swal(
         'Great!',
-        `Your post has been updated!`,
+        `Your project has been updated!`,
         'success'
       )
-      this.$router.push({ name: 'Posts' })
+      this.$router.push({ name: 'Projects' })
     }
   }
 }
@@ -64,7 +64,7 @@ export default {
 .form div {
   margin: 20px;
 }
-.app_post_btn {
+.app_project_btn {
   background: #47a792;
   color: #fff;
   padding: 10px 80px;

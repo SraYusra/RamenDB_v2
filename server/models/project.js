@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var PostSchema = new Schema({
+var ProjectSchema = new Schema({
   title: String,
   description: String,
   ticketNum: String,
@@ -13,9 +13,8 @@ var PostSchema = new Schema({
   hours: String,
   startDate: Date,
   endDate: Date,
-  faculty: String,
-  department: String
+  faculty: String
 });
 
-var Post = mongoose.model("Post", PostSchema);
-module.exports = Post;
+var Project = mongoose.model("Project", ProjectSchema);
+module.exports = Project;

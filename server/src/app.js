@@ -11,18 +11,18 @@ app.use(cors())
 const mongodb_conn_module = require('./mongodbConnModule');
 var db = mongodb_conn_module.connect();
 
-var Post = require("../models/post");
+var Project = require("../models/project");
 
-app.get('/posts', (req, res) => {
-  Post.find({}, 'title description', function (error, posts) {
+app.get('/projects', (req, res) => {
+  Project.find({}, 'title description', function (error, projects) {
 	  if (error) { console.error(error); }
 	  res.send({
-			posts: posts
+			projects: projects
 		})
 	}).sort({_id:-1})
 })
 
-app.post('/add_post', (req, res) => {
+app.post('/add_project', (req, res) => {
 	var db = req.db;
 	var title = req.body.title;
 	var description = req.body.description;
@@ -36,9 +36,8 @@ app.post('/add_post', (req, res) => {
 	var startDate = req.body.startDate;
 	var endDate = req.body.endDate;
 	var faculty = req.body.faculty;
-	var department = req.body.department;
 
-	var new_post = new Post({
+	var new_project = new Project({
 		title: title,
 		description: description,
 		ticketNum: ticketNum,
@@ -50,14 +49,13 @@ app.post('/add_post', (req, res) => {
   		hours: hours,
   		startDate: startDate,
 		endDate: endDate,
-		faculty: faculty,
-		department: department
+		faculty: faculty
 	})
 
-	//console.log(new_post);
-	//return 
+	// console.log(new_project)
+	// return
 
-	new_post.save(function (error) {
+	new_project.save(function (error) {
 		if (error) {
 			console.log(error)
 		}
@@ -67,14 +65,14 @@ app.post('/add_post', (req, res) => {
 	})
 })
 
-app.put('/posts/:id', (req, res) => {
+app.put('/projects/:id', (req, res) => {
 	var db = req.db;
-	Post.findById(req.params.id, 'title description', function (error, post) {
+	Project.findById(req.params.id, 'title description', function (error, project) {
 	  if (error) { console.error(error); }
 
-	  post.title = req.body.title
-	  post.description = req.body.description
-	  post.save(function (error) {
+	  project.title = req.body.title
+	  project.description = req.body.description
+	  project.save(function (error) {
 			if (error) {
 				console.log(error)
 			}
@@ -85,11 +83,11 @@ app.put('/posts/:id', (req, res) => {
 	})
 })
 
-app.delete('/posts/:id', (req, res) => {
+app.delete('/projects/:id', (req, res) => {
 	var db = req.db;
-	Post.remove({
+	Project.remove({
 		_id: req.params.id
-	}, function(err, post){
+	}, function(err, project){
 		if (err)
 			res.send(err)
 		res.send({
@@ -98,11 +96,11 @@ app.delete('/posts/:id', (req, res) => {
 	})
 })
 
-app.get('/post/:id', (req, res) => {
+app.get('/project/:id', (req, res) => {
 	var db = req.db;
-	Post.findById(req.params.id, 'title description', function (error, post) {
+	Project.findById(req.params.id, 'title description', function (error, project) {
 	  if (error) { console.error(error); }
-	  res.send(post)
+	  res.send(project)
 	})
 })
 

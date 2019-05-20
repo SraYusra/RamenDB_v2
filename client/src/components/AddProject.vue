@@ -1,6 +1,6 @@
 <template>
-  <div class="posts">
-    <h1>Add Post</h1>
+  <div class="projects">
+    <h1>Add Project</h1>
       <div class="form">
         
         <div>
@@ -32,7 +32,6 @@
               <option :selected="faculty=='Choose a Faculty...'" :value="null">Choose a Faculty...</option>
               <option v-for="f in faculties" v-bind:value="f" :key="f">{{f}}</option>
           </select>
-          <input style="width:165px" type="text" name="department" placeholder="DEPARTMENT" v-model="department">
         </div>
         <div>
 
@@ -65,7 +64,7 @@
         </div>
 
         <div>
-          <button class="app_post_btn" @click="addPost">Add</button>
+          <button class="app_project_btn" @click="addProject">Add</button>
         </div>
 
       </div>
@@ -73,11 +72,11 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
-import { ModelSelect } from 'vue-search-select'
+import ProjectsService from '@/services/ProjectsService'
+// import { ModelSelect } from 'vue-search-select'
 
 export default {
-  name: 'addpost',
+  name: 'addproject',
   data () {
     return {
       ticketNum: '',
@@ -92,7 +91,6 @@ export default {
       title: '',
       description: '',
       faculty: '',
-      department: '',
 
       statuses: [],
       faculties: [],
@@ -107,8 +105,8 @@ export default {
   },
 
   methods: {
-    async addPost () {
-      await PostsService.addPost({
+    async addProject () {
+      await ProjectsService.addProject({
         title: this.title,
         description: this.description,
         ticketNum: this.ticketNum,
@@ -120,15 +118,14 @@ export default {
         hours: this.hours,
         startDate: this.startDate,
         endDate: this.endDate,
-        faculty: this.faculty,
-        department: this.department
+        faculty: this.faculty
       })
       this.$swal(
         'Great!',
-        `Your post has been added!`,
+        `Your project has been added!`,
         'success'
       )
-      this.$router.push({ name: 'Posts' })
+      this.$router.push({ name: 'Projects' })
     }
   }
 }
@@ -156,7 +153,7 @@ export default {
   font-size: 12px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
-.app_post_btn {
+.app_project_btn {
   background: #47a792;
   color: #fff;
   padding: 10px 80px;

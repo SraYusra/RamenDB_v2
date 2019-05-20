@@ -1,9 +1,9 @@
 <template>
-  <div class="posts">
-    <h1>Posts</h1>
-    <div v-if="posts.length > 0" class="table-wrap">
+  <div class="projects">
+    <h1>Projects</h1>
+    <div v-if="projects.length > 0" class="table-wrap">
       <div>
-        <router-link v-bind:to="{ name: 'addpost' }" class="">Add Post</router-link>
+        <router-link v-bind:to="{ name: 'addproject' }" class="">Add Project</router-link>
       </div>
       <table>
         <tr>
@@ -11,19 +11,19 @@
           <td width="550">Description</td>
           <td width="100" align="center">Action</td>
         </tr>
-        <tr v-for="(post,index) in posts" :key="index">
-          <td>{{ post.title }}</td>
-          <td>{{ post.description }}</td>
+        <tr v-for="(project,index) in projects" :key="index">
+          <td>{{ project.title }}</td>
+          <td>{{ project.description }}</td>
           <td align="center">
-            <router-link v-bind:to="{ name: 'editpost', params: { id: post._id } }">Edit</router-link> |
-            <a href="#" @click="deletePost(post._id)">Delete</a>
+            <router-link v-bind:to="{ name: 'editproject', params: { id: project._id } }">Edit</router-link> |
+            <a href="#" @click="deleteProject(project._id)">Delete</a>
           </td>
         </tr>
       </table>
     </div>
     <div v-else>
-      There are no posts.. Lets add one now <br /><br />
-      <router-link v-bind:to="{ name: 'addpost' }" class="add_post_link">Add Post</router-link>
+      There are no projects.. Lets add one now <br /><br />
+      <router-link v-bind:to="{ name: 'addproject' }" class="add_project_link">Add Project</router-link>
     </div>
     <br>
     <br>
@@ -33,24 +33,24 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import ProjectsService from '@/services/ProjectsService'
 
 export default {
-  name: 'posts',
+  name: 'projects',
   data () {
     return {
-      posts: []
+      projects: []
     }
   },
   mounted () {
-    this.getPosts()
+    this.getProjects()
   },
   methods: {
-    async getPosts () {
-      const response = await PostsService.fetchPosts()
-      this.posts = response.data.posts
+    async getProjects () {
+      const response = await ProjectsService.fetchProjects()
+      this.projects = response.data.projects
     },
-    async deletePost (id) {
+    async deleteProject (id) {
       const $this = this
       $this.$swal({
         title: 'Are you sure?',
@@ -61,7 +61,7 @@ export default {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then(function () {
-        PostsService.deletePost(id)
+        ProjectsService.deleteProject(id)
         $this.$router.go({
           path: '/'
         })
@@ -71,7 +71,7 @@ export default {
 }
 </script>
 <style scoped type="text/css">
-.posts {
+.projects {
   margin-top: 130px;
 }
 .table-wrap {
@@ -99,7 +99,7 @@ a {
   color: #0ad6cc;
   text-decoration: none;
 }
-a.add_post_link {
+a.add_project_link {
   background: #47a792;
   color: #fff;
   padding: 10px 80px;
