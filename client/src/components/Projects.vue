@@ -8,12 +8,14 @@
       <table>
         <tr>
           <td>Title</td>
-          <td width="550">Description</td>
+          <td width="450">Description</td>
+          <td width="100">Type</td>
           <td width="100" align="center">Action</td>
         </tr>
         <tr v-for="(project,index) in projects" :key="index">
           <td>{{ project.title }}</td>
           <td>{{ project.description }}</td>
+          <td>{{ project.type.toLowerCase() }}</td>
           <td align="center">
             <router-link v-bind:to="{ name: 'editproject', params: { id: project._id } }">Edit</router-link> |
             <a href="#" @click="deleteProject(project._id)">Delete</a>

@@ -33,14 +33,12 @@
               <option v-for="f in faculties" v-bind:value="f" :key="f">{{f}}</option>
           </select>
         </div>
-        <div>
 
         <div>
-          <model-select :options="options" v-model="item" placeholder="select item">
-          </model-select>
-        </div>
-          
-        </div>
+          <basic-select :options="faculties" :selected-option="department" placeholder="select item" @select="onSelect()">
+          </basic-select>
+        </div>     
+
         <div>
           <input type="text" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
         </div>
@@ -73,7 +71,7 @@
 
 <script>
 import ProjectsService from '@/services/ProjectsService'
-// import { ModelSelect } from 'vue-search-select'
+import { BasicSelect } from 'vue-search-select'
 
 export default {
   name: 'addproject',
@@ -95,7 +93,8 @@ export default {
       statuses: [],
       faculties: [],
 
-      options: []
+      options: [],
+      department: ''
     }
   },
 
@@ -126,7 +125,13 @@ export default {
         'success'
       )
       this.$router.push({ name: 'Projects' })
+    },
+    onSelect (department) {
+      this.department = department
     }
+  },
+  components: {
+    BasicSelect
   }
 }
 </script>
@@ -149,6 +154,14 @@ export default {
   height: 35px;
   padding: 10px;
   border: 1px solid #e0dede;
+  outline: none;
+  font-size: 12px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+.form basic-select {
+  width: 200px;
+  height: 35px;
+  padding: 10px;
   outline: none;
   font-size: 12px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
