@@ -65,7 +65,7 @@ export default {
   margin: 20px;
 }
 .app_project_btn {
-  background: #47a792;
+  background: #800000;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;

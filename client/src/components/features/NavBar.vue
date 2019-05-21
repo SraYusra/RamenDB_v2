@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
   .navbar {
-    background: #ecce9d;
+    background: #666464;
     position: sticky; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%;
@@ -47,6 +47,7 @@ export default {
       margin-left: 40 px;
   }
   .logo {
+      color: aliceblue;
       font-family:fantasy;
       font-size: 100%;
   }
