@@ -19,7 +19,8 @@
         </div>
         
         <div class="col-sm-offset-3 col-sm-9">
-          <a href="#" class="btn btn-primary">Parse CSV</a>
+          <a href="#" class="btn btn-primary"><button class="app_project_btn">Parse CSV</button></a>
+          
         </div>
         <table v-if="parse_csv">
           <thead>
@@ -140,10 +141,12 @@ body {
   border: 2px solid #dfdfdf;
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 0 0;
   margin: 10px;
+  padding: 10px;
 } 
 .panel.panel-sm {
-  max-width: auto;
+  width: 60%;
   margin: 10px auto;
+  text-align: center;
 }
 .panel-heading {
   border-bottom: 2px solid #dfdfdf;
@@ -170,6 +173,18 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.app_project_btn {
+  background: #1590b5;
+  color: #fff;
+  padding: 10px 80px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  width: 520px;
+  border: none;
+  cursor: pointer;
 }
 </style>
 

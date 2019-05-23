@@ -94,15 +94,15 @@ table tr:nth-child(odd) {
   background: #f2f2f2;
 }
 table tr:nth-child(1) {
-  background: #800000;
+  background: #1590b5;
   color: #fff;
 }
 a {
-  color: #800000;
+  color: #1590b5;
   text-decoration: none;
 }
 a.add_project_link {
-  background: #800000;
+  background: #1590b5;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;
@@ -110,7 +110,7 @@ a.add_project_link {
   font-weight: bold;
 }
 a.upload_link {
-  background: #800000;
+  background: #1590b5;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;

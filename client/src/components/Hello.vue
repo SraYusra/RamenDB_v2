@@ -48,6 +48,6 @@ li {
 }
 
 a {
-  color: #800000;
+  color: #1590b5;
 }
 </style>

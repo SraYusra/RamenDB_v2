@@ -1,4 +1,4 @@
-var Project = require('../../models/project')
+var Project = require('../models/project')
 // ^ the models are one directory up, that's why there is a ../../etc.
 let express = require('express')
 let app = express.Router()
@@ -54,7 +54,7 @@ app.get('/projects', (req, res) => {
   
   app.put('/projects/:id', (req, res) => {
       var db = req.db;
-      Project.findById(req.params.id, 'title description type', function (error, project) {
+      Project.findById(req.params.id, function (error, project) {
         if (error) { console.error(error); }
   
         project.title = req.body.title
@@ -96,7 +96,7 @@ app.get('/projects', (req, res) => {
   
   app.get('/project/:id', (req, res) => {
       var db = req.db;
-      Project.findById(req.params.id, 'title description type', function (error, project) {
+      Project.findById(req.params.id, function (error, project) {
         if (error) { console.error(error); }
         res.send(project)
       })

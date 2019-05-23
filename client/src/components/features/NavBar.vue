@@ -1,11 +1,12 @@
 <template>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
+    <!-- slidenav is created in features/SlideNav.vue -->
+    <slidenav></slidenav>
     <div class="navbar-item" width="1700">
       <img src="../../assets/logo.png" width="50" height="60">
       <div class="logo">Ramen Database</div>
     </div>
-
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -28,14 +29,18 @@
 </template>
 
 <script>
+import slidenav from '@/components/features/SlideNav'
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: {
+    'slidenav': slidenav
+  }
 }
 </script>
 
 <style scoped>
   .navbar {
-    background: #666464;
+    background: #a2adad;
     position: sticky; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%;
@@ -46,8 +51,11 @@ export default {
       float: fixed;
       margin-left: 40 px;
   }
+  slidenav {
+    padding: 0px 10px;
+  }
   .logo {
-      color: aliceblue;
+      color: black;
       font-family:fantasy;
       font-size: 100%;
   }

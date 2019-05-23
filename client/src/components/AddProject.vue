@@ -34,10 +34,11 @@
           </select>
         </div>
 
+        <!-- 
         <div>
           <basic-select :options="faculties" :selected-option="department" placeholder="select item" @select="onSelect()">
           </basic-select>
-        </div>     
+        </div>   -->  
 
         <div>
           <input type="text" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
@@ -54,11 +55,13 @@
         </div>
 
         <div>
-          <input type="date" name="startDate" placeholder="START DATE" v-model="startDate">
+          <label>Start Date: </label>
+          <input type="date" style="width: 410px" name="startDate" placeholder="START DATE" v-model="startDate">
         </div>
 
         <div>
-          <input type="date" name="endDate" placeholder="END DATE" v-model="endDate">
+          <label>End Date: </label>
+          <input type="date" style="width: 410px" name="endDate" placeholder="END DATE" v-model="endDate">
         </div>
 
         <div>
@@ -167,7 +170,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 .app_project_btn {
-  background: #800000;
+  background: #1590b5;
   color: #fff;
   padding: 10px 80px;
   text-transform: uppercase;
@@ -181,4 +184,3 @@ export default {
 
 
 </style>
-
