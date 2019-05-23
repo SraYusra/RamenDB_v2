@@ -1,9 +1,9 @@
 <template>
   <div class="projects">
-    <h1>Projects</h1>
+    <h1>Projects and Services</h1>
     <div v-if="projects.length > 0" class="table-wrap">
       <div>
-        <router-link v-bind:to="{ name: 'addproject' }" class="">Add Project</router-link>
+        <router-link v-bind:to="{ name: 'addproject' }" class="">Add Project/Service</router-link>
       </div>
       <table>
         <tr>

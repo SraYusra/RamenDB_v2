@@ -163,6 +163,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   overflow-x: auto;
+  margin-top: 15px;
 }
 
 td, th {

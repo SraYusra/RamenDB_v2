@@ -105,14 +105,14 @@ export default {
   },
   mounted () {
     this.getProject()
-    this.statuses = require('./status.json').statuses
-    this.faculties = require('./faculties.json').faculties
+    this.statuses = require('./status.json').statuses // The different status options. JSON file that we use for the statuses dropdown
+    this.faculties = require('./faculties.json').faculties // All the faculties pulled from a json file, to the faculties dropdown
   },
   methods: {
     async getProject () {
       // Gets the data from the API to be edited
       const response = await ProjectsService.getProject({
-        id: this.$route.params.id
+        id: this.$route.params.id // takes the id from the url, gets data by id" => projects/:id
       })
       this.title = response.data.title
       this.description = response.data.description
@@ -132,8 +132,9 @@ export default {
 
       // Update: this still doesn't work :$
       var temp = new Date(this.startDate)
+      this.startDate = temp.getFullYear() + '-' + (temp.getMonth() + 1) + '-' + temp.getDate() // Month is incremented cuz months start at 0
+
       var temp2 = new Date(this.endDate)
-      this.startDate = temp.getFullYear() + '-' + (temp.getMonth() + 1) + '-' + temp.getDate()
       this.endDate = temp2.getFullYear() + '-' + (temp2.getMonth() + 1) + '-' + temp2.getDate()
     },
     async updateProject () {
