@@ -4,7 +4,7 @@
     <!-- slidenav is created in features/SlideNav.vue -->
     <slidenav></slidenav>
     <div class="navbar-item" width="1700">
-      <a href="/">
+      <a style="text-decoration: none" href="/">
         <img src="../../assets/logo.png" width="50" height="60">
         <div class="logo">Ramen Database</div>
       </a>

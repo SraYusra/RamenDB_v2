@@ -3,19 +3,14 @@
     <h1>Edit Project</h1>
       <div class="form">
         <div>
-          <label>Title: </label>
-          <input type="text" style="width: 460px" name="title" placeholder="TITLE" v-model="title">
+          <input type="text" name="title" placeholder="TITLE" v-model="title">
         </div>
         <div>
-          <div>
-            <label>Description: </label>
-          </div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
 
         <div>
-          <label>Ticket No.: </label>
-          <input type="text" style="width: 410px" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
+          <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
         </div>
         <div>
           <label>Type: </label>
@@ -43,24 +38,21 @@
         <div>
           <basic-select :options="faculties" :selected-option="department" placeholder="select item" @select="onSelect()">
           </basic-select>
-        </div>   -->
+        </div>   
+        -->
 
         <div>
-          <label>Customer Name: </label>
-          <input type="text" style="width: 365px" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
+          <input type="text" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
         </div>
         <div>
-          <label>Customer ID: </label>
-          <input type="text" style="width: 390px" name="customerID" placeholder="CUSTOMER ID" v-model="customerID">
+          <input type="text" name="customerID" placeholder="CUSTOMER ID" v-model="customerID">
         </div>
         <div>
-          <label>Course ID: </label>
-          <input type="text" style="width: 410px" name="courseID" placeholder="COURSE ID" v-model="courseID">
+          <input type="text" name="courseID" placeholder="COURSE ID" v-model="courseID">
         </div>
         
         <div>
-          <label>Duration: </label>
-          <input type="text" style="width: 420px" name="hours" placeholder="HOURS" v-model="hours">
+          <input type="text" name="hours" placeholder="HOURS" v-model="hours">
         </div>
 
         <div>
@@ -70,12 +62,13 @@
         </div>
 
         <div>
-          <label>Start Date: </label>
+          <label> Start Date: </label>
           <input type="date" style="width: 410px" name="startDate" placeholder="START DATE" v-model="startDate">
         </div>
 
         <div>
-          <label>End Date: </label>
+
+          <label> E n d Date: </label>
           <input type="date" style="width: 410px" name="endDate" placeholder="END DATE" v-model="endDate">
         </div>
 
