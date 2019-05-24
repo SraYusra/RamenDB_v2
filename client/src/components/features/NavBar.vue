@@ -49,14 +49,20 @@ export default {
     height: 100px;
   }
   .navbar-brand {
-      padding: 10px 0px;
+      padding: 0px 0px;
       float: fixed;
       margin-left: 40 px;
   }
-  slidenav {
-    padding: 0px 10px;
+
+  .navbar-item {
+     padding: 10px 0px;
+  }
+
+  .slidenav {
+    align: start;
   }
   .logo {
+    padding: 0px 0px;
       color: black;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 100%;
