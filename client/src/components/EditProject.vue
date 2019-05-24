@@ -3,14 +3,19 @@
     <h1>Edit Project</h1>
       <div class="form">
         <div>
-          <input type="text" name="title" placeholder="TITLE" v-model="title">
+          <label>Title: </label>
+          <input type="text" style="width: 460px" name="title" placeholder="TITLE" v-model="title">
         </div>
         <div>
+          <div>
+            <label>Description: </label>
+          </div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
 
         <div>
-          <input type="text" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
+          <label>Ticket No.: </label>
+          <input type="text" style="width: 410px" name="ticketNum" placeholder="TICKET NUMBER" v-model="ticketNum">
         </div>
         <div>
           <label>Type: </label>
@@ -41,17 +46,21 @@
         </div>   -->
 
         <div>
-          <input type="text" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
+          <label>Customer Name: </label>
+          <input type="text" style="width: 365px" name="customerName" placeholder="CUSTOMER NAME" v-model="customerName">
         </div>
         <div>
-          <input type="text" name="customerID" placeholder="CUSTOMER ID" v-model="customerID">
+          <label>Customer ID: </label>
+          <input type="text" style="width: 390px" name="customerID" placeholder="CUSTOMER ID" v-model="customerID">
         </div>
         <div>
-          <input type="text" name="courseID" placeholder="COURSE ID" v-model="courseID">
+          <label>Course ID: </label>
+          <input type="text" style="width: 410px" name="courseID" placeholder="COURSE ID" v-model="courseID">
         </div>
         
         <div>
-          <input type="text" name="hours" placeholder="HOURS" v-model="hours">
+          <label>Duration: </label>
+          <input type="text" style="width: 420px" name="hours" placeholder="HOURS" v-model="hours">
         </div>
 
         <div>

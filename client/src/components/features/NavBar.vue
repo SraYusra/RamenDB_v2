@@ -4,8 +4,10 @@
     <!-- slidenav is created in features/SlideNav.vue -->
     <slidenav></slidenav>
     <div class="navbar-item" width="1700">
-      <img src="../../assets/logo.png" width="50" height="60">
-      <div class="logo">Ramen Database</div>
+      <a href="/">
+        <img src="../../assets/logo.png" width="50" height="60">
+        <div class="logo">Ramen Database</div>
+      </a>
     </div>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -56,7 +58,7 @@ export default {
   }
   .logo {
       color: black;
-      font-family:fantasy;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 100%;
   }
 </style>
