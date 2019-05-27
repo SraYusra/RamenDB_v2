@@ -1,0 +1,14 @@
+{
+    "statuses": [
+        "OPEN",
+        "ROADMAP",
+        "NEEDS APPROVAL",
+        "INVESTIGATING",
+        "FROZEN",
+        "ESCALATED",
+        "WAITING FOR REPORTER",
+        "WAITING FOR EXTERNAL",
+        "INACTIVE - PENDING CLOSURE",
+        "CLOSED"
+    ]
+}

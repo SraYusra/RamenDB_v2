@@ -7,7 +7,8 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <label for="csv_file" class="control-label col-sm-3 text-right">CSV file to import</label>
+          <br>
+          <label for="csv_file" class="control-label col-sm-3 text-right">FILE UPLOAD</label>
           <div class="col-sm-9">
             <input type="file" id="csv_file" name="csv_file" class="form-control" @change="loadCSV($event)">
           </div>
@@ -19,8 +20,10 @@
         </div>
         
         <div class="col-sm-offset-3 col-sm-9">
-          <a href="#" class="btn btn-primary">Parse CSV</a>
+          <a href="/" class="btn btn-primary"><button class="app_project_btn">Parse CSV</button></a>
         </div>
+
+        <!-- HERE is where the table will be displayed once CSV is uploaded -->
         <table v-if="parse_csv">
           <thead>
             <tr>
@@ -48,7 +51,6 @@
 
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -61,6 +63,7 @@ export default {
       channel_fields: [],
       channel_entries: [],
       parse_header: [],
+      headers: ['Title', 'Description', 'Select'],
       parse_csv: [],
       sortOrders: {},
       sortKey: ''
@@ -100,6 +103,8 @@ export default {
       })
 
       result.pop() // remove the last item because undefined values
+
+      // INSTEAD OF RETURN, lets pass result to a new function to filter out the keys to only get ones we need and post them to database
       return result // JavaScript object
     },
     loadCSV (e) {
@@ -140,10 +145,12 @@ body {
   border: 2px solid #dfdfdf;
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 0 0;
   margin: 10px;
+  padding: 10px;
 } 
 .panel.panel-sm {
-  max-width: auto;
+  width: 60%;
   margin: 10px auto;
+  text-align: center;
 }
 .panel-heading {
   border-bottom: 2px solid #dfdfdf;
@@ -160,6 +167,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   overflow-x: auto;
+  margin-top: 15px;
 }
 
 td, th {
@@ -170,6 +178,18 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.app_project_btn {
+  background: #1590b5;
+  color: #fff;
+  padding: 10px 80px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  width: 60%;
+  border: none;
+  cursor: pointer;
 }
 </style>
 
