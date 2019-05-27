@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Projects from '@/components/Projects'
-import addproject from '@/components/AddProject'
-import editproject from '@/components/EditProject'
+import Posts from '@/components/Posts'
+import addpost from '@/components/AddPost'
+import editpost from '@/components/EditPost'
 import upload from '@/components/UploadFile'
 
 Vue.use(Router)
@@ -12,18 +12,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Projects',
-      component: Projects
+      name: 'Posts',
+      component: Posts
     },
     {
-      path: '/projects/add',
-      component: addproject,
-      name: 'addproject'
+      path: '/posts/add',
+      component: addpost,
+      name: 'addpost'
     },
     {
-      path: '/projects/:id/edit',
-      component: editproject,
-      name: 'editproject'
+      path: '/posts/:id/edit',
+      component: editpost,
+      name: 'editpost'
     },
     {
       path: '/upload',
